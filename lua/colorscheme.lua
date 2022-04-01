@@ -11,4 +11,3 @@ if not status_ok then
   vim.notify("colorscheme: " .. colorscheme .. " 没有找到！")
   return
 end
-

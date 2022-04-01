@@ -18,49 +18,8 @@ require("plugin-config.nvim-treesitter")
 require("lsp.setup")
 require("lsp/cmp")
 require("lsp/ui")
-
-
-
-
-
-
-
 -- require("plugin-config.null-ls")
 -- require("plugin-config.formatter")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 -- require("utils.change-colorscheme")
 -- 输入法自动切换

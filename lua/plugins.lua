@@ -96,8 +96,6 @@ packer.startup({
       "ellisonleao/gruvbox.nvim",
       requires = {"rktjmp/lush.nvim"}
     })
-    -- zephyr
-    -- use("glepnir/zephyr-nvim")
     -- nord
     use("shaunsingh/nord.nvim")
     -- onedark

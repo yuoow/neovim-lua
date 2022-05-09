@@ -20,17 +20,6 @@ formatter.setup({
         }
       end,
     },
-    cs = {
-      function()
-        return {
-          exe = "astyle",
-          args = {
-            "--quiet",
-          },
-          stdin = true,
-        }
-      end,
-    },
     rust = {
       -- Rustfmt
       function()

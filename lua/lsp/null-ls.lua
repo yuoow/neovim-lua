@@ -12,17 +12,6 @@ null_ls.setup({
   debug = false,
   sources = {
     -- Formatting ---------------------
-    -- C#
-    formatting.astyle.with({
-      filetypes = {
-        "arduino",
-        "c",
-        "cpp",
-        "cs",
-        "java"
-      } ,
-      prefer_local = "node_modules/.bin",
-    }),
     --  brew install shfmt
     formatting.shfmt,
     -- StyLua
@@ -43,10 +32,11 @@ null_ls.setup({
         "yaml",
         "graphql",
       },
-      extra_filetypes = { "njk" },
       prefer_local = "node_modules/.bin",
     }),
-    -----------------------------------------------------
+    -- rustfmt
+    -- rustup component add rustfmt
+    formatting.rustfmt,
     -- Python
     -- pip install black
     -- asdf reshim python
@@ -56,19 +46,13 @@ null_ls.setup({
     -- gem install rubocop
     formatting.rubocop,
     -----------------------------------------------------
+    formatting.astyle,
+    --c#
     -- formatting.fixjson,
     -- Diagnostics  ---------------------
     diagnostics.eslint.with({
       prefer_local = "node_modules/.bin",
     }),
-    -- diagnostics.markdownlint,
-    -- markdownlint-cli2
-    -- diagnostics.markdownlint.with({
-    --   prefer_local = "node_modules/.bin",
-    --   command = "markdownlint-cli2",
-    --   args = { "$FILENAME", "#node_modules" },
-    -- }),
-    --
     -- code actions ---------------------
     code_actions.gitsigns,
     code_actions.eslint.with({
@@ -79,8 +63,9 @@ null_ls.setup({
   -- #{s}: source name (defaults to null-ls if not specified)
   -- #{c}: code (if available)
   diagnostics_format = "[#{s}] #{m}",
-  on_attach = function(client)
-    vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()']])
+  on_attach = function(_)
+  -- 自定义 Format 命令·  
+    vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()']])
     -- if client.resolved_capabilities.document_formatting then
     --   vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
     -- end

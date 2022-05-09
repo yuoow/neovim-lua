@@ -65,8 +65,9 @@ vim.g.completeopt = "menu,menuone,noselect,noinsert"
 -- 样式
 vim.o.termguicolors = true
 vim.opt.termguicolors = true
--- 不可见字符的显示，这里只把空格显示为一个点
+--是否显示不可见字符
 vim.o.list = true
+-- 不可见字符的显示，这里只把空格显示为一个点
 vim.o.listchars = "space:·,tab:··"
 -- 补全增强
 vim.o.wildmenu = true
@@ -80,3 +81,14 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 -- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
+-- neovide
+vim.o.guifont = "MesloLGS NF:h12"
+vim.g.neovide_transparency = 0.9
+vim.g.neovide_refresh_rate = 60
+vim.g.neovide_cursor_vfx_mode = "pixiedust"
+vim.g.neovide_cursor_antialiasing = true
+vim.g.neovide_cursor_vfx_particle_density = 30.0
+vim.g.neovide_cursor_vfx_particle_lifetime = 1.5
+vim.g.neovide_animation_length=0.13
+vim.g.neovide_cursor_trail_length=0.7
+vim.g.neovide_remember_window_size= true

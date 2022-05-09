@@ -15,14 +15,15 @@ autocmd("BufEnter", {
   end,
 })
 
--- 自动切换输入法
+-- 自动切换输入法，需要安装 im-select
+-- https://github.com/daipeihust/im-select
 autocmd("InsertLeave", {
   group = myAutoGroup,
-  callback = require("utils.im-select").macInsertLeave,
+  callback = require("utils.im-select").windowsInsertLeave,
 })
 autocmd("InsertEnter", {
   group = myAutoGroup,
-  callback = require("utils.im-select").macInsertEnter,
+  callback = require("utils.im-select").windowsInsertEnter,
 })
 
 -- 进入Terminal 自动进入插入模式
@@ -34,8 +35,8 @@ autocmd("TermOpen", {
 -- 保存时自动格式化
 autocmd("BufWritePre", {
   group = myAutoGroup,
-  pattern = { "*.lua", "*.py" },
-  callback = vim.lsp.buf.formatting_sync,
+  pattern = { "*.lua", "*.py", "*.sh" },
+  callback = vim.lsp.buf.format,
 })
 
 -- 修改lua/plugins.lua 自动更新插件
@@ -48,4 +49,13 @@ autocmd("BufWritePost", {
       vim.api.nvim_command("PackerSync")
     end
   end,
+})
+
+-- Highlight on yank
+autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = myAutoGroup,
+  pattern = "*",
 })

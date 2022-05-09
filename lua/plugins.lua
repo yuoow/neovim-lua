@@ -58,6 +58,7 @@ packer.startup({
     })
     -- telescope extensions
     use("LinArcX/telescope-env.nvim")
+    use("nvim-telescope/telescope-ui-select.nvim")
     -- dashboard-nvim
     use("glepnir/dashboard-nvim")
     -- project
@@ -71,8 +72,9 @@ packer.startup({
     -- indent-blankline
     use("lukas-reineke/indent-blankline.nvim")
     --------------------- LSP --------------------
+    use({ "williamboman/nvim-lsp-installer", commit = "36b44679f7cc73968dbb3b09246798a19f7c14e0" })
     -- Lspconfig
-    use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
+    use({ "neovim/nvim-lspconfig" })
     -- 补全引擎
     use("hrsh7th/nvim-cmp")
     -- Snippet 引擎
@@ -92,12 +94,14 @@ packer.startup({
     -- 代码格式化
     use("mhartington/formatter.nvim")
     use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+    -- TypeScript 增强
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
     -- Lua 增强
     use("folke/lua-dev.nvim")
     -- JSON 增强
     use("b0o/schemastore.nvim")
-
+    -- Rust 增强
+    use("simrat39/rust-tools.nvim")
     --------------------- colorschemes --------------------
     -- tokyonight
     use("folke/tokyonight.nvim")
@@ -127,9 +131,16 @@ packer.startup({
     use("windwp/nvim-autopairs")
     -- git
     use({ "lewis6991/gitsigns.nvim" })
-
+    -- vimspector
+    use("puremourning/vimspector")
     ----------------------------------------------
+    use("mfussenegger/nvim-dap")
+    use("theHamsta/nvim-dap-virtual-text")
+    use("rcarriga/nvim-dap-ui")
+    -- use("Pocco81/DAPInstall.nvim")
+    -- use("jbyuki/one-small-step-for-vimkind")
 
+    use("j-hui/fidget.nvim")
     if paccker_bootstrap then
       packer.sync()
     end
